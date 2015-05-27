@@ -1,0 +1,23 @@
+#! /bin/bash
+
+if [ ! "$1" ]
+then
+   echo "Usage: $0 virshcommand [sleep]"
+   exit
+fi
+
+arg=$1
+flag=$(echo $2 | cut -c 1)
+if [ "$flag" = "-" ]; then
+   arg="$1 $2"
+   shift
+fi
+
+for vm in $(cat vms)
+do 
+   virsh $arg $vm
+   if [ "$2" ]
+   then
+      sleep $2
+   fi
+done

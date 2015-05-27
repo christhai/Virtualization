@@ -1,0 +1,37 @@
+#! /bin/bash
+
+# for i in $(seq 0 47); do cpufreq-set -c $i -g performance; done
+cd /root/MMnested
+./killPS 2> /dev/null
+echo "0" > count  # file count used to count number of started VMs
+
+echo "2^18" | bc > /proc/sys/kernel/pid_max   # Persistent, just for the record
+echo "2^18" | bc > /proc/sys/vm/max_map_count # Persistent, just for the record
+ulimit -s 16384 # Not persistent
+
+/bin/rm output/m*
+
+nCPU=4
+vms=10000
+
+ntpdate ntp.uio.no
+echo "Starting logd and vms"
+/root/MMnested/perfdata/logd2.sh 1sec${nCPU}CPUtrueSleep${vms}x64KvmEnabled-aFlag-qemu1.7.5&
+ 
+kvm="/root/qemu1.7.50/bin/native/x86_64-softmmu/qemu-system-x86_64 --enable-kvm -hda microMachine.hda -net none -no-acpi -no-hpet -balloon none -m 1 -no-fd-bootchk -vga none -parallel none -nodefconfig -nographic"
+
+write=100 # Writes number of started processes after write times, timeconsuming
+          # 1000 writes takes 6 seconds, 1.5 sec in parallell
+	  
+for i in $(seq 0 $vms)
+do 
+   if [[ $(($i % $write)) == 0 ]]; then
+      echo $i > count & # task $i was started in end of previous loop
+   fi
+   mm=mm_$i
+   $kvm 2> /dev/null > output/$mm & # speedstart
+   sleep 1
+done
+((i++)) # Including process nr 0
+echo $i > count
+

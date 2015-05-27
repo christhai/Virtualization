@@ -1,0 +1,13 @@
+#!/bin/bash 
+
+if [ $# -lt 1 ]
+then
+   echo No arguments
+   exit              # Avsluttet scriptet
+fi
+
+for vm in $(cat vms | sed s/control//)
+do 
+   echo -n "VM$vm: "
+   ssh -o BatchMode=yes -o connectTimeout=20 root@192.168.122.$vm $*
+done
