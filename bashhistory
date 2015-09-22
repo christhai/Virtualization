@@ -1,0 +1,1870 @@
+nano /etc/network/interfaces
+/etc/init.d/networking restart
+ifdown eth0
+ifup eth0
+ifconfig 
+service networking restart
+ping 192.168.0.21
+nano /etc/network/interfaces
+service networking restart
+reboot
+ls
+mkdir vm
+cd vm
+ls
+wget http://releases.ubuntu.com/14.04.2/ubuntu-14.04.2-server-amd64.iso
+apt-get install qemu-kvm libvirt/bin virtinst
+apt-get install qemu-kvm libvirt-bin virtinst
+qemu-img create -f qcow2 ubuntutest.img 5G
+ls
+qemu-system-x86_64 -enable-kvm -name ubuntutest  -m 2048 -hda ubuntutest.img -cdrom ubuntu-14.04-server-amd64.iso -boot d -vnc :19
+qemu-system-x86_64 -enable-kvm -name ubuntutest  -m 2048 -hda ubuntutest.img -cdrom ubuntu-14.04.2-server-amd64.iso -boot d
+qemu-system-x86_64 -enable-kvm -name ubuntutest  -m 2048 -hda ubuntutest.img -cdrom ubuntu-14.04.2-server-amd64.iso -boot d -vnc :19
+x11vnc 
+apt-get install realvnc-vnc-viewer
+netstat 
+netstat ut
+netstat -ntupl
+ps -ef|grep vnc
+ps -ef|grep x11vnc
+x11vnc help
+ifconfig 
+apt-get install openssh-server
+apt-get update
+apt-get install openssh-server
+apt-get search vnc
+apt-cache ?
+apt-cache help
+apt-cache search vnc
+apt-get upgrade
+ls
+cd vm
+ls
+adduser s199425 libvirtd
+virsh -c qemu:///system list
+brctl addbr br0
+ip link set br0 up
+ifconfig 
+tunctl /b
+apt-get install uml-utilities
+tunctl -b
+ifconfig 
+ip link set tap0 up
+ifconfig 
+brctl addif br0 tap0
+ifconfig 
+qemu-system-x86_64 -enable-kvm -name ubuntutest  -m 2048 -hda ubuntutest.qcow2 -vnc :19 -net nic,model=virtio -net tap,ifname=tap0,script=no,downscript=no
+cd vm/
+ls
+qemu-system-x86_64 -enable-kvm -name ubuntutest  -m 2048 -hda ubunt -vnc :19 -net nic,model=virtio -net tap,ifname=tap0,script=no,downscript=no
+ifconfig 
+ifconfig br0 192.168.57.1/24
+ifconfig 
+cat /etc/network/interfaces
+cat /etc/resolv.conf 
+sysctl -p
+net.ipv4.ip_forward = 1
+sysctl -p net.ipv4.ip_forward = 1
+sysctl -p
+cat /proc/sys/net/ipv4/ip_forward
+sysctl net.ipv4.ip_forward
+iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+qemu-system-x86_64-device ?
+qemu-system-x86_64 -device ?
+qemu-img info ubuntutest.qcow2 
+ls
+ifconfig 
+ps aux | grep qemu | grep tap0
+ssh 192.168.57.100
+ssh mroot@192.168.57.100
+find / -name tap
+find / -name *tap*
+find / -name *tun/tap*
+find / -name *tun*
+find / -name tun
+qemu-system-x86_64 -net nic,model=?
+remmina 
+terminator 
+cd vm
+history 
+qemu-system-x86_64 -enable-kvm -name ubuntutest1  -m 1024 -hda network1.img -vnc :17 -net nic,macaddr=52:54:00:12:34:56 -net socket,mcast=230.0.0.1:1234
+qemu-system-x86_64 -enable-kvm -name ubuntutest2  -m 1024 -hda ubuntutest.qcow2 -vnc :17 -net nic,macaddr=52:54:00:12:34:56 -net socket,mca
+qemu-system-x86_64 -enable-kvm -name ubuntutest  -m 2048 -hda ubuntutest.qcow2 -vnc :17 -net nic,model=virtio -net tap,ifname=tap0,script=no,downscript=no
+virsh list
+nano /etc/libvirt/libvirtd.conf 
+qemu+unix:///system?socket=/opt/libvirt/run/libvirt/libvirt-sock
+virsh -c qemu+ssh://openstack@192.168.57.1/system list
+virsh -c qemu+ssh://s199425@192.168.57.1/system list
+virsh -c qemu+ssh://s199425@192.168.57.100/system list
+virsh -c qemu+ssh://mroot@192.168.57.100/system list
+remmina 
+ls
+cd vm
+ls
+nano ubuntutest.xml
+virsh define ubuntutest.xml 
+nano ubuntutest.xml
+virsh define ubuntutest.xml 
+virsh edit ubuntutest
+virsh start ubuntutest
+pwd
+virsh edit ubuntutest
+apt-get install virt-manager
+virt-manager 
+history 
+ls
+cd vm
+ls
+nano /etc/libvirt/libvirtd.conf 
+virt-manager 
+virsh list
+history 
+history | grep "virt"
+ps aux | grep qemu
+virt-manager 
+ls
+cd ~
+ls
+cd /home/s199425/
+ls
+cd vm
+ls
+ls -la
+ls -lah
+cat ubuntutest1.xml 
+ls
+cd ..
+ls
+virsh list
+ifconfig 
+ping 10.0.0.10
+virsh stop ubuntutest
+virsh list
+virsh dominfo 12
+virsh dominfo 13
+virsh shutdown 12
+virsh shutdown 13
+virsh list
+virsh nodeinfo
+virsh capabilities
+ls
+cd vm
+qemu-system-x86_64 -enable-kvm -name ubuntutest1  -m 1024 -hda network1.img -vnc :17 -net nic,macaddr=52:54:00:12:34:56 -net socket,mcast=230.0.0.1:1234
+qemu-system-x86_64 -enable-kvm -name ubuntutest2  -m 1024 -hda ubuntutest.qcow2 -vnc :17 -net nic,macaddr=52:54:00:12:34:56 -net socket,mcast=230.0.0.1:1234
+ls
+nano ubuntutest.xml 
+virsh define ubuntutest.xml 
+virsh start ubututest
+virsh start ubuntutest
+ls
+pwd
+nano ubuntutest.xml 
+virsh define ubuntutest.xml 
+virsh start ubuntutest
+nano ubuntutest.xml 
+virsh list
+cp ubuntutest.xml ubuntutest1.xml
+nano ubuntutest1.xml 
+virsh define ubuntutest1.xml 
+nano ubuntutest1.xml 
+virsh define ubuntutest1.xml 
+nano ubuntutest1.xml 
+virsh define ubuntutest1.xml 
+virsh start ubuntutest1
+ifconfig 
+nano ubuntutest1.xml 
+virsh shutdown ubuntutest
+virsh list
+virsh undefined ubuntutest
+virsh undefine ubuntutest
+nano ubuntutest.xml 
+virsh define ubuntutest.xml 
+virsh start ubuntutest
+virsh destory ubuntutest
+virsh destroy ubuntutest
+ps aux | grep qemu
+nano ubuntutest.xml 
+virsh define ubuntutest.xml 
+virsh start ubuntutest
+virsh list
+virsh vncdisplay ubuntutest
+netstat | grep vnc
+netstat -a | grep vnc
+netstat -a
+virsh list
+nano ubuntutest.xml 
+nano ubuntutest1.xml 
+nano ubuntutest.xml 
+virsh list -a
+virsh list -A
+virsh list -ALL
+virsh list -all
+virsh list --all
+virsh undefine ubuntutest1
+virsh list --all
+nano ubuntutest1.xml 
+cp ubuntutest.qcow2 ubuntutest1.qcow2
+nano ubuntutest1.xml 
+virsh define ubuntutest1.xml 
+virsh undefine ubuntutest1
+nano ubuntutest1.xml 
+virsh define ubuntutest1.xml 
+ifconfig 
+ifconfig br0
+virsh undefine ubuntutest1
+nano ubuntutest1.xml 
+ifconfig 
+ps aux | grep vnc
+netstat -nltp | grep 5900
+qemu-system-x86_64 -enable-kvm -name ubuntutest  -m 2048 -hda ubuntutest.img -cdrom ubuntu-14.04-server-amd64.iso -boot d -vnc :19
+qemu-system-x86_64 -enable-kvm -name ubuntutest  -m 2048 -hda ubuntutest.img -cdrom ubuntu-14.04.2-server-amd64.iso -boot d -vnc :19
+ls
+ls -lah
+qemu-system-x86_64 -enable-kvm  -m 2048 ubuntutest.img 
+qemu-img convert -O qcow2 -c ubuntutest.img ubuntutest.qcow2
+ls
+ls -lah
+rm ubuntutest.qcow2 
+qemu-img convert -O qcow2 -c ubuntutest.img ubuntutest.qcow2
+ls -lah
+qemu-system-x86_64 -enable-kvm -name ubuntutest  -m 2048 -hda ubuntutest.qcow2 -vnc :19 -net nic,model=virtio -net tap,ifname=tap0,script=no,downscript=no
+history 
+ls
+cd vm
+ls
+qemu-system-x86_64 -enable-kvm -name ubuntutest  -m 1024 -hda ubuntutest.qcow2 -vnc :19 -net nic,model=virtio -net tap,ifname=tap0,script=no,downscript=no
+brctl addbr br0
+ip link set br0 up
+tunctl -b
+ip link set tap0 up
+brctl addif br0 tap0
+ifconfig br0 192.168.57.1/24
+ifconfig 
+qemu-system-x86_64 -enable-kvm -name ubuntutest  -m 1024 -hda ubuntutest.qcow2 -vnc :19 -net nic,model=virtio -net tap,ifname=tap0,script=no,downscript=no
+sysctl -p
+net.ipv4.ip_forward = 1
+sysctl -p
+sysctl -a | grep forward
+sysctl –p net.ipv4.ip_forward = 1
+sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+ls
+cd vm
+ls
+wget ftp://ftp.stacklet.com/archive/x86/Ubuntu/12.04/ubuntu.12-04.x86.20141001.raw.img.tar.bz2
+tar xvjf ubuntu.12-04.x86.20141001.raw.img.tar.bz2 
+qemu-system-x86_64 -enable-kvm -name ubuntu12  -m 1024 -hda ubuntu.12-04.x86.20141001.raw.img -vnc :28 -net nic,model=virtio -net tap,ifname=tap0,script=no,downscript=no
+qemu-system-x86_64 -enable-kvm -name ubuntu12  -m 1024 -hda ubuntu.12-04.x86.20141001.raw.img -vnc :28 -net nic,model=virtio -net tap,ifname=tap1,script=no,downscript=no
+ps aux | grep qemu
+ifconfig 
+ps aux | grep qemu
+cd vm/
+ls
+qemu-system-x86_64 -enable-kvm -name ubuntutest  -m 1024 -hda ubuntutest.qcow2 -vnc :19 -net nic,model=virtio -net tap,ifname=tap0,script=no,downscript=no
+tunctl -b 
+ifconfig 
+ip link set tap1 up
+ifconfig 
+brctl addif br0 tap1 
+ifconfig 
+arp 
+ps aux | grep qemu
+cd ~
+ls
+cd -
+exit
+qemu-img create -f qcow2 ubutuvirt.img 5G
+ls
+history 
+ls
+exit
+cd /var/lib/libvirt/images/
+ls
+cd -
+sudo virsh --connect qemu:///system
+ls
+rm vm12.img 
+exit
+apt-get update
+apt-get upgrade
+ssh s199425@192.168.0.21
+hostname -f
+nano /etc/hostname 
+nano /etc/hosts
+ping ubuntu
+virsh migrate --live vm11 qemu+ssh://ubuntu.cloud/system
+virsh migrate --live vm11 qemu+ssh://s199425@ubuntu.cloud/system
+virsh migrate --live --persistent demo1 qemu+ssh://s199425@192.168.0.21/system
+cd /usr/bin/kvm
+cat /usr/bin/kvm
+uname
+uname -a
+ls -l /dev/kvm
+virsh capabilities
+egrep -c ' lm ' /proc/cpuinfo
+groups
+virsh migrate --live --persistent demo1 qemu+ssh://s199425@192.168.0.21/system
+virsh migrate --live --persistent vm11 qemu+ssh://s199425@192.168.0.21/system
+ls
+virsh migrate --live --persistent vm11 qemu+ssh://s199425@192.168.0.21/system
+ping 192.168.121.151
+ifconfig 
+apt-get install htop
+htop 
+virsh migrate --live --persistent vm11 qemu+ssh://s199425@192.168.0.21/system
+virsh migrate --live --persistent vm12 qemu+ssh://s199425@192.168.0.21/system
+ls
+cd vm
+ls
+ls -lh
+ls
+virsh migrate --live --persistent vm12 qemu+ssh://s199425@192.168.0.21/system
+htop 
+virsh migrate --live --persistent vm12 qemu+ssh://s199425@192.168.0.21/system
+./test.sh 
+cd ..
+cd /
+cd  -
+cd  IncludeOS/test
+
+qemu-system-x86_64 -hda IncludeOS_tests_v3.2.1-proto-7-gb432bc6.img -device virtio-net,netdev=net0,mac=c0:01:0a:00:00:0a -netdev tap,id=net0 -m 50 -nographic
+virsh list
+qemu-system-x86_64 -hda IncludeOS_tests_v3.2.1-proto-7-gb432bc6.img -device virtio-net,netdev=net0,mac=c0:01:0a:00:00:0a -netdev tap,id=net0 -m 50 -nographic
+qemu-system-x86_64 -hda IncludeOS_tests_v3.2.1-proto-7-gb432bc6.img -device virtio-net,netdev=net0,mac=c0:01:0a:00:00:0a -netdev tap,id=net1 -m 50 -nographic
+qemu-system-x86_64 -hda IncludeOS_tests_v3.2.1-proto-7-gb432bc6.img -device virtio-net,netdev=net0,mac=c0:01:0a:00:00:0a -netdev tap,id=net0 -m 50 -nographic
+ls
+apt-get install git
+git clone https://github.com/hioa-cs/IncludeOS
+ls
+cd IncludeOS
+ls
+./install.sh 
+ifconfig 
+ping 10.0.0.10
+virsh list
+arp -an
+ping 10.0.0.10
+virt-addr includeos
+ls
+cd ..
+ls
+cd ~
+ls
+cd - 
+cd IncludeOS
+ls
+cd test
+ls
+cd ~
+ls
+cd /home/s199425/
+ls
+cd vm
+ls
+cp ubuntutest.xml includeos.xml
+nano includeos.xml 
+cd ..
+ls
+cp IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img vm/
+cd vm
+ls
+nano includeos.xml 
+nano includeos.args
+virsh dumpxml includeos > includeos1.xml
+cat includeos1.xml 
+nano includeos1.xml 
+ls
+virsh domxml-from-native qemu-argv includeos.args 
+cat includeos.args 
+nano includeos1.xml 
+ls
+ifconfig 
+ping 10.0.0.10
+nano includeos1.xml 
+nano includeos.args 
+cat ubutuvirt.img 
+cat ubuntutest.xml 
+nano includeos1.xml 
+ifconfig 
+nano includeos1.xml 
+virsh create includeos1.xml 
+nano includeos1.xml 
+virsh create includeos1.xml 
+virsh start includeos1
+virsh list
+arp -an
+ping 10.0.0.10
+virst stop incldeos1
+virsh stop incldeos1
+virsh shutdown incldeos1
+virsh shutdown includeos1
+virsh undefine includeos1
+virsh destory includeos1
+virsh destroy includeos1
+virsh list
+ls
+ifconfig 
+ls
+virsh dumpxml includeos1 > include.xml
+nano include.xml
+rm include.xml
+nano include.xml
+virsh create include.xml 
+nano include.xml
+virsh create include.xml 
+nano include.xml
+whereis qemu-system-x86_64
+virsh create include.xml 
+nano in.xml
+nano includeos.xml 
+ifconfig 
+arp -an
+ping 10.0.0.10
+ps aux | grep qemu
+ls
+cd vm
+ls
+cat include.xml 
+nano include.xml 
+ls
+virst list
+virsh list
+virsh create include.xml 
+nano include.xml 
+virsh destroy include
+virsh list
+virsh create include.xml 
+virsh list
+arp -an
+ping 10.0.0.10
+arp -an
+cd vm
+ls
+nano includeos.xml 
+cp ubuntutest.xml in.xml
+nano in.xml
+virsh create in.xml
+nano in.xml
+qemu-img convert -O qcow2 -c IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img.qcow2
+nano in.xml
+virsh create in.xml
+virsh undefine in.xml
+virsh list
+virsh destroy ubuntutest
+virsh list
+virsh undefine in.xml
+nano in.xml
+virsh create in.xml
+virsh list
+arp /an
+arp -an
+virsh list
+ping 10.0.0.10
+virsh destroy intest
+nano in.xml
+virsh create in.xml
+virsh list
+virsh destroy intest
+nano in.xml
+history 
+ls
+scp IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img s199425@192.168.122.21:~
+ssh 199425@192.168.122.21
+ifconfig 
+scp IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img s199425@192.168.0.21:~
+virsh list
+virsh qemu-monitor-command includeos --pretty '{"execute":"query-migrate"}'
+virsh migrate --live --persistent vm12 qemu+ssh://s199425@192.168.0.24/system
+virsh migrate --live --persistent vm12 qemu+ssh://s199425@192.168.0.21/system
+history 
+cd vm
+ls
+cat includeos.args 
+cat includeos.xml 
+ls
+ifconfig 
+
+ls
+qemu-system-x86_64 -hda IncludeOS_tests_v3.2.1-proto-35-g537a7ed-dirty.img -device virtio-net,netdev=net0,mac=c0:01:0a:00:00:0a -netdev tap,id=net0 -m 50 -nographic
+qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img -device virtio-net,netdev=net0,mac=c0:01:0a:00:00:0a -netdev tap,id=net0 -m 50 -nographic
+qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img -device virtio-net,netdev=net0,mac=c0:01:0a:00:00:0a -netdev tap,id=net0 -m 50 -nographic  -qmp unix:./qmp-sock,server --monitor stdio
+cda
+{ "execute": "qmp_capabilities" }; { "execute": "qmp_capabilities" }; { "execute": "qmp_capabilities" }; { "execute": "qmp_capabilities" }; { "execute": "qmp_capabilities" }; { "execute": "qmp_capabilities" };  { "execute": "qmp_capabilities" }
+clsnc -U ./qmp-socknc -U ./qmp-socksa
+ls
+qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img -device virtio-net,netdev=net0,mac=c0:01:0a:00:00:0a -netdev tap,id=net0 -m 50 -nographic -qmp unix:./qmp-sock,server --monitor stdio
+ls
+exit
+python pyrun.py 
+nano pyrun.py 
+ls
+qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img -device virtio-net,netdev=net0,mac=c0:01:0a:00:00:0b -netdev tap,id=net0 -m 50 -nographic  -qmp unix:./qmp-sock1,server --monitor stdio
+ls
+nc -U ./qmp-sock
+qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img -device virtio-net,netdev=net0,mac=c0:01:0a:00:00:0b -netdev tap,id=net0 -m 50 -nographic  -qmp unix:./qmp-sock1,server --monitor stdio
+nc -U ./qmp-sock
+nano file 
+ifconfig 
+nano file 
+ping 10.0.0.10
+ps aux | grep qemu
+cp file quit
+nano quit 
+nc -U ./qmp-sock > quit
+cat quit 
+rm quit 
+cp file quit
+nano quit 
+nc -U ./qmp-sock < quit
+nano quit 
+fg
+cat file 
+nano quit 
+nc -U ./qmp-sock < quit
+ping 10.0.0.10
+nc -U ./qmp-sock
+nc -U ./qmp-sock < file 
+nc -U ./qmp-sock1 
+arp -an
+ping 10.0.0.10
+ping 10.0.0.11
+arp -an
+ps aux | grep qemu
+nc -U ./qmp-sock1 < file 
+nc -U ./qmp-sock1 < file1
+
+cat file 
+nano file2
+nc -U ./qmp-sock1 < file2
+nano makeVM.sh
+chmod 744 makeVM.sh 
+ls
+./makeVM.sh 
+ls
+nano pyrun.py 
+python pyrun.py 
+nano pyrun.py 
+python pyrun.py 
+ls
+nano pyrun.py 
+python pyrun.py 
+nano pyrun.py 
+python pyrun.py 
+nano pyrun.py 
+python pyrun.py 
+nano pyrun.py 
+python pyrun.py 
+nano pyrun.py 
+python pyrun.py 
+c
+ping 10.0.0.10
+arp -an
+nano pyrun.py 
+ls
+cp file migrate
+nano file
+nano pyrun.py 
+cat file2
+nano file
+nano pyrun.py 
+python pyrun.py 
+ping 10.0.0.10 
+ping 10.0.0.10
+nano pyrun.py 
+python pyrun.py 
+nano pyrun.py 
+python pyrun.py 
+nano pyrun.py 
+ls
+nano pyrun.py 
+nano file
+nano pyrun.py 
+ps aux | grep
+ps aux | grep qemu
+kill 26704
+kill 267788
+kill 26788
+kill 26826
+python pyrun.py 
+ping 10.0.0.10
+ps aux | grep qemu
+python pyrun.py 
+ps aux | grep qemu
+rm 2844
+kill 2844
+kill 3245
+rm qmp-sock*
+python pyrun.py 
+ls
+nc -U ./qmp-sock
+rm qmp-sock
+nc -U ./qmp-sock
+ls
+nc -U ./qmp-sock1
+nc -U ./qmp-sock2
+nc -U ./qmp-sock3
+nc -U ./qmp-sock0
+nc -U ./qmp-sock4
+nc -U ./qmp-sock5
+cat makeVM.sh 
+cat make.sh 
+cp makeVM.sh migrate.sh
+nano migrate.sh 
+nc -U ./qmp-sock5 < "{ "execute": "qmp_capabilities" }"
+nc -U ./qmp-sock5 < { "execute": "qmp_capabilities" }
+nc -U ./qmp-sock5 < "execute": "qmp_capabilities" 
+cat < ({ "execute": "qmp_capabilities" })
+cat < ("{ "execute": "qmp_capabilities" }")
+cat < (echo { "execute": "qmp_capabilities" })
+cat < (echo { "execute": "qmp_capabilities" }) | nc -U ./qmp-sock5 
+echo { "execute": "qmp_capabilities" } | nc -U ./qmp-sock5 
+echo { "execute": "qmp_capabilities" } - | nc -U ./qmp-sock5 
+echo { "execute": "qmp_capabilities" }  | nc -U ./qmp-sock5 -
+echo '{ "execute": "qmp_capabilities" }'  | nc -U ./qmp-sock5 
+echo '{ "execute": "qeury-kvm" }'  | nc -U ./qmp-sock5 
+echo '{ "execute": "query-kvm" }'  | nc -U ./qmp-sock5 
+nano migrate
+nano migrate.sh 
+./migrate.sh 
+nano migrate.sh 
+./migrate.sh 
+nano migrate.sh 
+./migrate.sh 
+nano migrate.sh 
+./migrate.sh 
+nano migrate.sh 
+echo '{ "execute": "qmp_capabilities","query-kvm" }'  | nc -U ./qmp-sock5
+echo '{ "execute": "qmp_capabilities" }'  | nc -U ./qmp-sock5
+nano file
+cp file f
+nano file
+nano f
+nano migrate.sh 
+./migrate.sh 
+nano migrate.sh 
+./migrate.sh 
+ping 10.0.0.1
+nano migrate.sh 
+./migrate.sh 
+arp -an
+arping 
+arping -an
+arping I include
+arping -I include
+arping -I
+arping -I eth0
+arp
+arp -a
+arp -an
+ping 10.0.0.2
+ping 10.0.0.3
+ping 10.0.0.4
+ping 10.0.0.1
+ping 10.0.0.5
+ls
+ping 10.0.10.0
+ping 10.0.10.1
+ping 10.0.10.0
+ls
+ps aux | grep qemu
+ping 10.0.0.10
+kill 4928
+kill 4957
+kill 6575
+kill 6624
+ls
+nano makeVM.sh 
+./makeVM.sh 
+ps aux | grep qemu
+nano makeVM.sh 
+nc -U ./qmp-sock0
+kill 3237*
+kill 32371
+ps aux | grep qemu
+kill 32373
+kill 32375
+kill 32377
+kill 32379
+
+nano makeVM.sh 
+ls
+nano makeVM.sh 
+./makeVM.sh 
+ps aux | grep qemu
+cp  makeVM.sh make.sh
+nano make.sh
+rm qmp-sock
+./make.sh 
+nano make.sh
+./make.sh 
+ps aux | grep qemu
+killall qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img
+killall "qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img"
+pkill -9 "qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img"
+ps aux | grep qemu
+pkill -9 "qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img *"
+ps aux | grep qemu
+pgrep '^qemu*'
+pgrep '^qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img*'
+pgrep '^qemu-system-x86_64*'
+pgrep '^qemu-system-x86_64'
+pgrep 'qemu-system-x86_64'
+pgrep '^qemu*'
+ps aux | grep '[p]ython csp_build.py' | awk '{print $2}'
+ps aux | grep 'qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img*' | awk '{print $2}'
+ps aux | grep 'qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img' | awk '{print $2}'
+kill $(ps aux | grep 'qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img' | awk '{print $2}')
+ps aux | grep qemu
+print $(ps aux | grep 'qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img' | awk '{print $2}')
+nano make.sh
+./make.sh 
+ps aux | grep qemu
+nano make.sh
+rm qmp-sock
+./make.sh 
+ls
+qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img -device virtio-net,netdev=net0,mac=c0:01:0a:00:00:0a -netdev tap,id=net0 -m 50 -nographic
+ping 10.0.0.10
+ps aux | grep qemu
+ls
+kill 3333
+kill 3354
+ping 10.0.0.10
+nano makeVM.sh 
+./makeVM.sh 
+
+alias killinclude = kill $(ps aux | grep 'qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img' | awk '{print $2}')
+alias killinclude = 'kill $(ps aux | grep 'qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img' | awk '{print $2}')'
+alias killinclude = "kill $(ps aux | grep 'qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img' | awk '{print $2}')"
+ps aux | grep qemu
+kill $(ps aux | grep 'qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img' | awk '{print $2}')
+ps aux | grep qemu
+./makeVM.sh 
+cat file
+LS
+ls
+cat makeVM.sh 
+cat make.sh 
+nc -U ./qmp-sock0
+nc -U ./qmp-sock1
+nc -U ./qmp-sock2
+nc -U ./qmp-sock3
+nc -U ./qmp-sock4
+nc -U ./qmp-sock5
+cp makeVM.sh make.sh 
+nano make.sh 
+rm make.sh 
+nano migrate.sh 
+./migrate.sh 
+cat f
+echo '{ "execute": "qmp_capabilities" }'
+echo '{ "execute": "qmp_capabilities","execute": "query-kvm" }' |  nc -U ./qmp-sock1
+echo '{ "execute": "qmp_capabilities", "execute": "query-kvm"}' |  nc -U ./qmp-sock1
+echo '{ "execute": "qmp_capabilities"}' |  nc -U ./qmp-sock1
+echo '{ "execute": "qmp_capabilities"} { "execute": "query-migrate" }' |  nc -U ./qmp-sock1
+echo '{ "execute": "qmp_capabilities"} { "execute": "query-kvm" }' |  nc -U ./qmp-sock1
+nano migrate.sh 
+./migrate.sh 
+cat f
+./migrate.sh 
+nano migrate.sh 
+cp migrate.sh m.sh
+nano  m.sh
+m.sh
+./m.sh 
+nano  m.sh
+./m.sh 
+nano  m.sh
+./m.sh 
+nano  m.sh
+./m.sh 
+nano  m.sh
+./m.sh 
+nano migrate.sh 
+./migrate.sh 
+ping 10.0.10.0
+nano m.sh 
+cat migrate
+nano migrate.sh 
+file2
+cat file2
+nc -U ./qmp-sock1 < file2
+nano migrate.sh 
+nano m.sh 
+./m.sh 
+ls
+./migrate.sh 
+ping 10.0.10.1
+nano migrate.sh 
+ps aux | gerp qemu
+ps aux | grep qemu
+ping 10.0.10.1
+ls
+nano migrate.sh 
+nano m.sh 
+./m.sh 
+ls
+nano pyrun.py 
+nano m.sh 
+./m.sh 
+nano m.sh 
+./m.sh 
+nano m.sh 
+nano file2
+./m.sh 
+nano m.sh 
+./m.sh 
+nano migrate 
+nano migrate.sh 
+kill $(ps aux | grep 'qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img' | awk '{print $2}')
+ps aux | grep qemu
+ls
+nano m.sh 
+nano migrate.sh 
+./makeVM.sh 
+q
+kill $(ps aux | grep 'qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img' | awk '{print $2}')
+ps aux | grep qemu
+./makeVM.sh 
+nano migrate.sh 
+./migrate.sh 
+nano migrate.sh 
+./migrate.sh 
+ping 10.0.10.1
+nano m.sh
+cat migrate.sh 
+nano m.sh
+cat file2
+nano m.sh
+./m.sh 
+nc -U ./qmp-sock1 < file2
+nano m.sh
+ls
+
+nano m.sh
+touch result
+./m.sh 
+cat result 
+nano pyrun.py 
+nano m.sh 
+nano m.sh
+nano m.sh 
+./m.sh 
+nano m.sh 
+./m.sh 
+nano m.sh 
+./m.sh 
+nano m.sh 
+./m.sh 
+cat downtime 
+rm downtime 
+cat downtime 
+nano m.sh 
+./m.sh 
+cat downtime 
+cat m.sh 
+mv m.sh query-migrate.sh
+ls
+cat migrate.sh.save 
+cat migrate.sh
+nano migrate.sh
+rm migrate.sh.save 
+ls
+nano query-migrate.sh 
+cat result 
+cat makeVM.sh 
+cat migrate
+cat migrate.sh 
+cat query-migrate.sh 
+cd
+ls
+cd /
+cd -
+cd /home/s199425/
+ls
+nano makeVM.sh 
+./makeVM.sh 
+nano makeVM.sh 
+./makeVM.sh 
+nano makeVM.sh 
+cat makeVM.sh 
+nc -U ./qmp-sock < file2
+nc -U ./qmp-sock < file3
+ping 10.0.1.10
+nc -U ./qmp-sock
+nc -U ./qmp-sock < file2
+nc -U ./qmp-sock < file3
+ping 10.0.1.10
+nc -U ./qmp-sock < file2
+nc -U ./qmp-sock1 < file2
+nc -U ./qmp-sock < file2
+nc -U ./qmp-sock
+ping 10.0.1.10
+nc -U ./qmp-sock < file3
+nc -U ./qmp-sock < file2
+nano migrate.sh 
+nano query-migrate.sh 
+nano migrate.sh 
+ps aux | grep qemu
+./migrate.sh 
+nano query-migrate.sh 
+./query-migrate.sh 
+cat downtime 
+arp -an
+nc -U ./qmp-sock
+nano test.sh
+./test.sh
+ps aux | grep qemu
+./test.sh
+nc -U ./qmp-sock < file2
+arp -an
+ping 10.0.1.10
+ping 10.0.0.10
+ping 10.0.10.1
+nc -U ./qmp-sock
+nc -U ./qmp-sock < file2
+jobs
+cp makeVM.sh make.sh
+nano make.sh 
+ps aux | grep qemu
+nano make.sh 
+cp make.sh test.sh
+chmod 744 make.sh 
+chmod 744 test.sh 
+nano test.sh 
+cat makeVM.sh 
+nano test.sh 
+./test.sh 
+nano test.sh 
+cat migrate.sh 
+nano test.sh 
+./test.sh 
+kill $(ps aux | grep 'qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img' | awk '{print $2}')
+nano test.sh 
+cat file
+cat f
+nano test.sh 
+nano file
+nano test.sh 
+cat file2
+nano file2
+nano test.sh 
+./test.sh 
+kill $(ps aux | grep 'qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img' | awk '{print $2}')
+ps aux | grep qemu
+nano test.sh 
+./test.sh 
+ps aux | grep qemu
+ping 10.0.1.10
+nano test.sh 
+cp file2 file2
+cp file2 file3
+nano file3
+nano test.sh 
+nano file
+nano test.sh 
+kill $(ps aux | grep 'qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img' | awk '{print $2}')
+rm qmp-sock
+./test.sh 
+kill $(ps aux | grep 'qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img' | awk '{print $2}')
+./test.sh 
+nano test.sh 
+./test.sh 
+nano test.sh 
+./test.sh
+kill $(ps aux | grep 'qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img' | awk '{print $2}')
+nano test.sh 
+./test.sh
+kill $(ps aux | grep 'qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img' | awk '{print $2}')
+nano test.sh 
+./make.sh 
+ps aux | grep qemu
+nano test.sh
+./test.sh
+nano test.sh
+kill $(ps aux | grep 'qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img' | awk '{print $2}')
+./test.sh
+kill $(ps aux | grep 'qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img' | awk '{print $2}')
+
+nano test.sh
+./test.sh
+nano test.sh
+cat make.sh 
+nano  make.sh 
+kill $(ps aux | grep 'qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img' | awk '{print $2}')
+./test.sh
+ls
+./test.sh
+nano  make.sh 
+ping 10.0.1.10
+nano test.sh
+ping 10.0.1.10
+./test.sh
+ping 10.0.1.10
+nano test.sh
+nano migrate.sh 
+kill $(ps aux | grep 'qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img' | awk '{print $2}')
+./makeVM.sh 
+kill $(ps aux | grep 'qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img' | awk '{print $2}')
+nano makeVM.sh 
+./makeVM.sh 
+kill $(ps aux | grep 'qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img' | awk '{print $2}')
+nano test.sh
+./make.sh &
+nc -U ./qmp-sock1 < file2
+nc -U ./qmp-sock1
+nc -U ./qmp-sock
+ps aux | grep qemu
+kill $(ps aux | grep 'qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img' | awk '{print $2}')
+ps aux | grep qemu
+kill 8572
+./make.sh 
+nc -U ./qmp-sock
+ls
+cd vm
+ls
+nano include.xml
+kill $(ps aux | grep 'qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img' | awk '{print $2}')
+virsh create include.xml
+virsh list
+arp -an
+ping 10.0.10.10
+ping 10.0.10.1
+virsh shutdown include
+virsh undefine  include
+virsh console quest
+virsh console guest
+cat include.xml
+cat includeos.xml
+virsh list
+virsh dumpxml includeos
+type arch='x86_64' machine='pc-i440fx-trusty'>hvm</type>
+</domain>
+virsh dumpxml includeos
+nano inc.xml
+diff inc.xml include.xml 
+diff inc.xml includeos.xml 
+ls
+cat includeos.args 
+naono includeos.args 
+nano includeos.args 
+virsh list
+virsh destroy include
+virsh destroy includeos
+nano includeos.xml 
+virsh undefine includeos.xml
+virsh undefine includeos
+virsh define includeos.xml
+virsh list -a
+virsh list --all
+virsh start includeos
+nano includeos.xml 
+virsh undefine includeos
+virsh define includeos.xml 
+nano in.xml 
+nano includeos.xml 
+virsh define includeos.xml 
+virsh start include
+ifconfig 
+nano include.xml 
+ls
+nano includeos1.xml 
+virsh destroy includeos
+virsh undefine  includeos.xml
+virsh undefine  includeos
+virsh undefine  includeos1
+virsh create includeos1.xml 
+virsh list
+ifconfig 
+ping 10.0.0.10
+arp -f
+arp -an
+virsh console includeos1
+virsh qemu-monitor-command includeos1 --pretty '{"execute":"query-kvm"}'
+cat migrate.sh 
+cat result 
+cat downtime 
+cat migrate.sh 
+virsh qemu-monitor-command includeos1 --pretty ' { "execute": "migrate", "arguments": { "uri": "tcp:192.168.0.21:4444" }'
+ls
+cd vm
+ls
+cat includeos1.xml 
+ls
+cd vm
+ls
+virsh list
+ping 10.0.0.10
+history 
+virsh qemu-monitor-command includeos --pretty '{"execute":"query-kvm"}'
+virsh qemu-monitor-command includeos1 --pretty '{"execute":"query-kvm"}'
+virsh qemu-monitor-command includeos1 --pretty '{"execute":"query-status"}'
+cd ..
+ls
+cat migrate
+cd vm
+virsh qemu-monitor-command includeos1 --pretty '{ "execute": "migrate", "arguments": { "uri": "tcp:192.168.0.21:4444" } }'
+virsh qemu-monitor-command includeos1 --pretty '{"execute":"query-migrate"}'
+virsh list
+virsh qemu-monitor-command includeos1 --pretty '{ "execute": "migrate", "arguments": { "uri": "tcp:192.168.0.21:4444" } }'
+virsh list
+ifconfig 
+virsh qemu-monitor-command includeos1 --pretty '{"execute":"query-status"}'
+virsh qemu-monitor-command includeos1 --pretty '{"execute":"query-cpu"}'
+virsh qemu-monitor-command includeos1 --pretty '{"execute":"query-block"}'
+virsh qemu-monitor-command includeos1 --pretty '{ "execute": "migrate", "arguments": { "uri": "tcp:192.168.0.21:4444" } }'
+nano includeos.xml 
+nano includeos1.xml 
+ls
+cp includeos1.xml  includeos2.xml
+rm include.xml
+rm inc.xml
+nano includeos2.xml 
+virsh create includeos2.xml 
+nano includeos2.xml 
+fg
+virsh create includeos2.xml 
+virsh list
+arp -an
+ping 10.0.0.11
+ping 10.0.0.10
+virsh qemu-monitor-command includeos2 --pretty '{ "execute": "migrate", "arguments": { "uri": "tcp:192.168.0.21:4444" } }'
+virsh list
+virsh qemu-monitor-command includeos2 --pretty '{ "execute": "migrate", "arguments": { "uri": "tcp:192.168.0.21:4444" } }'
+nano includeos2.xml 
+virsh qemu-monitor-command includeos1 --pretty '{"execute":"query-ram"}'
+virsh qemu-monitor-command includeos1 --pretty '{"execute":"query-cpus"}'
+virsh qemu-monitor-command includeos1 --pretty '{"execute":"query-pci"}'
+virsh qemu-monitor-command includeos2 --pretty '{"execute":"query-pci"}'
+virsh migrate --live --persistent includeos1 qemu+ssh://s199425@192.168.0.21/system
+ping 10.0.0.10
+virsh list
+virsh list --all
+virsh qemu-monitor-command includeos1 --pretty '{"execute":"query-migrate"}'
+virsh migrate --live --persistent --verbose includeos2 qemu+ssh://s199425@192.168.0.21/system
+virsh list --all
+virsh help
+virsh qemu-monitor-command includeos2 --verbose '{"execute":"query-migrate"}' 
+virsh list
+virsh qemu-monitor-command includeos2 --verbose '{"execute":"query-migrate"}' 
+virsh qemu-monitor-command includeos1 --pretty '{"execute":"query-migrate"}'
+virsh qemu-monitor-command includeos2 --pretty '{"execute":"query-migrate"}'
+virsh qemu-monitor-command includeos2 --pretty '{ "execute": "migrate", "arguments": { "uri": "ssh:s199425@192.168.0.21" } }'
+virsh list
+virsh qemu-monitor-command includeos2 --pretty '{ "execute": "migrate", "arguments": { "uri": "tcp:192.168.0.21:4444" } }'
+virsh list
+time virsh migrate --live --persistent --verbose includeos2 qemu+ssh://s199425@192.168.0.21/system
+virsh list
+export LIBVIRT_DEBUG=1
+export LIBVIRT_LOG_OUTPUTS="1:file:virsh.log"
+ls
+virsh list
+ls
+cat virsh.log 
+more virsh.log 
+tail -f virsh.log 
+virsh list
+cd ..
+cat file1
+ls
+cat file1
+cat file
+cat file2
+cat makeVM.sh 
+cat migrate.sh 
+cat query-migrate.sh 
+ls
+cd vm
+cp includeos2.xml in.xml
+nano in.xml 
+whereis qemu-system-x86_64
+nano in.xml 
+virsh create in.xml
+virsh list
+virsh qemu-monitor-command in --pretty '{ "execute": "migrate", "arguments": { "uri": "tcp:192.168.0.21:4444" } }'
+top
+exit
+kill $(ps aux | grep 'qemu-system-x86_64 -hda IncludeOS' | awk '{print $2}')
+ps aux | grep qemu
+qemu-system-x86_64 -hda IncludeOS_tests_v3.2.1-proto-35-g537a7ed-dirty.img -device virtio-net,netdev=net0,mac=c0:01:0a:00:00:0a -netdev tap,id=net0 -m 100 -nographic -qmp unix:./qmp-sock,server --monitor stdio
+qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img -device virtio-net,netdev=net0,mac=c0:01:0a:00:00:0a -netdev tap,id=net0 -m 100 -nographic -qmp unix:./qmp-sock,server --monitor stdio
+history 
+virsh qemu-monitor-command in --pretty '{ "execute": "migrate", "arguments": { "uri": "tcp:192.168.0.21:4444" } }'
+history 
+virsh list
+ls
+cat query-migrate.sh 
+virsh qemu-monitor-command in --pretty '{ "execute": "query-migrate"}'
+virsh qemu-monitor-command includeos2 --pretty '{ "execute": "query-migrate"}'
+virsh
+virsh qemu-monitor-command includeos2 --pretty '{ "execute": "info migrate"}'
+virsh qemu-monitor-command includeos2 --pretty '{ "execute": "query-migrate"}'
+qemu-monitor-command includeos2 --pretty '{ "execute": "query-migrate"}'
+virsh qemu-monitor-command --hmp includeos2 'info migrate'
+virsh list
+virsh qemu-monitor-monitor
+virsh qemu-monitor-event
+virsh
+virsh -version
+qemu-monitor-command includeos  '{ "execute": "query-migrate"}'
+virsh qemu-monitor-command includeos2 --hmp '{ "execute": "query-migrate"}'
+virsh qemu-monitor-command includeos2 --hmp  --pretty '{ "execute": "query-migrate"}'
+virsh qemu-monitor-command includeos2 --pretty '{ "execute": "query-migrate"}'
+virsh qemu-monitor-command in --pretty '{ "execute": "query-migrate"}'
+virsh qemu-monitor-command in --pretty '{ "execute": "query-migrate-time"}'
+virsh qemu-monitor-command in --pretty '{ "execute": "query-commands"}'
+virsh qemu-monitor-command in --pretty '{ "execute": "query-migrate-cache-size"}'
+virsh qemu-monitor-command in --pretty '{ "execute": "client_migrate_info"}'
+virsh qemu-agent-command
+virsh qemu-agent-command in 
+virsh qemu-agent-command in 'info migrate'
+virsh qemu-agent-command includeos2 'info migrate'
+virsh list
+ls
+cd vm
+ls
+cp includeos2.xml includeos3.xml
+nano includeos3.xml 
+libvirt --version
+libvirt --v
+libvirt -v
+libvirtd -v
+nano includeos3.xml 
+virsh create includeos3.xml
+nano includeos3.xml 
+virsh create includeos3.xml
+ifconfig 
+nano includeos3.xml 
+virsh qemu-monitor-command --hmp includeos2 'info migrate'
+virsh
+nano includeos3.xml 
+virsh list
+ls
+virsh create includeos3.xml
+virsh list
+virsh qemu-agent-command includeos3 'info migrate'
+virsh destroy includeos3
+nano includeos3.xml 
+cd /var/lib/libvirt/qemu/
+ls
+nc -U ./in.monitor 
+ls
+cd ~
+ls
+cd -
+cd
+ls
+cd -
+cd /home/s199425/
+ls
+cat query-migrate.sh 
+cd -
+cd /home/
+cd -
+cd /home/s199425/
+cat file2
+ls
+cd vm
+nano includeos3.xml 
+cd ..
+cat migrate.sh 
+apt-get install qemu-guest-agent
+qemu-ga 
+man qemu-ga 
+ls -l /var/log/libvirt/
+ls -l /var/log/libvirt/shutdownlog.log 
+cat /var/log/libvirt/shutdownlog.log 
+ls -l /var/log/libvirt/
+ls -l /var/log/libvirt/uml/
+ls -l /var/log/libvirt/libxl/
+ls -l /var/log/libvirt/qemu/
+ls -l /var/log/libvirt/qemu/includeos1.log 
+cat /var/log/libvirt/qemu/includeos1.log 
+virsh list
+ls
+nani migrate.sh 
+nano migrate.sh 
+nano make.sh 
+nano makeVM.sh 
+nano make.sh 
+nano migrate.sh
+nano make.sh 
+./make.sh
+nano make.sh 
+ps aux | grep qemu
+arp -an
+ping 10.0.1.10
+ifconfig 
+nano make.sh 
+./make.sh
+c
+ping 10.0.1.10
+ping 10.0.0.10
+nano make.sh 
+kill $(ps aux | grep 'qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img' | awk '{print $2}')
+nano make.sh 
+./make.sh 
+nano make.sh 
+screen nano make.sh
+apt-get install screen
+screen nano make.sh 
+screen ls
+screen -ls
+screen
+ls
+
+kill $(ps aux | grep 'qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img' | awk '{print $2}')
+./make.sh 
+kill $(ps aux | grep 'qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img' | awk '{print $2}')
+./make.sh 
+kill $(ps aux | grep 'qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img' | awk '{print $2}')
+nano make.sh 
+cat migrate.sh 
+cat  make.sh 
+nano make.sh 
+./make.sh 
+cat  make.sh 
+nano make.sh 
+kill $(ps aux | grep 'qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img' | awk '{print $2}')
+./make.sh 
+kill $(ps aux | grep 'qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img' | awk '{print $2}')
+nano make.sh 
+cat makeVM.sh 
+cat migrate.sh 
+nano make.sh 
+./make.sh 
+nano make.sh 
+kill $(ps aux | grep 'qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img' | awk '{print $2}')
+./make.sh 
+ping 10.0.0.10
+nano make.sh 
+ls
+cat file
+cat file2
+cat file
+nano make.sh 
+kill $(ps aux | grep 'qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img' | awk '{print $2}')
+ping 10.0.0.10
+arp -an
+ping 10.0.0.11
+cat make.sh 
+qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img -device virtio-net,netdev=net0,mac=$macaddress -netdev tap,id=net0 -m 100 -nographic -qmp unix:./qmp-sock,server --monitor stdio
+exit
+nano make.sh 
+ping 10.0.0.10
+nc -U ./qmp-sock
+cat make.vm
+cat make.sh 
+nano make.sh 
+qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img -device virtio-net,netdev=net0,mac=c0:01:0a:00:00:0d netdev tap,id=net0 -m 100 -nographic -qmp unix:./qmp-sock,server --monitor stdio
+kill $(ps aux | grep 'qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img' | awk '{print $2}')
+qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img -device virtio-net,netdev=net0,mac=c0:01:0a:00:00:0d netdev tap,id=net0 -m 100 -nographic -qmp unix:./qmp-sock,server --monitor stdio
+ping 10.0.0.13
+ifconfig 
+ps aux | grep qemu
+qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img -device virtio-net,netdev=net0,mac=c0:01:0a:00:00:0a netdev tap,id=net0 -m 100 -nographic -qmp unix:./qmp-sock,server --monitor stdio
+ls
+cat make.sh 
+qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img -device virtio-net,netdev=net0,mac=c0:01:0a:00:00:0a netdev tap,id=net0 -m 100 -nographic -qmp unix:./qmp-sock,server --monitor stdio
+qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img -device virtio-net,netdev=net0,mac=c0:01:0a:00:00:0e netdev tap,id=net0 -m 100 -nographic -qmp unix:./qmp-sock,server --monitor stdio
+ifconfig 
+cat make.sh 
+ps aux | grep qemu
+qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img -device virtio-net,netdev=net0,mac=c0:01:0a:00:00:0e netdev tap,id=net0 -m 100 -nographic -qmp unix:./qmp-sock1,server --monitor stdio
+qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img -device virtio-net,netdev=net0,mac=c0:01:0a:00:00:0a -netdev tap,id=net0 -m 50 -nographic -qmp unix:./qmp-sock,server --monitor stdio
+ls
+nc -U ./qmp-sock
+nc -U ./qmp-sock < file
+nc -U ./qmp-sock < file2
+nc -U ./qmp-sock < file
+nc -U ./qmp-sock < file2
+ping 10.0.0.10
+cat file
+nc -U ./qmp-sock < file
+nc -U ./qmp-sock < file2
+ping 10.0.0.10
+./make.sh 
+ping 10.0.0.11
+ping 10.0.0.10
+ping 10.0.0.12
+ping 10.0.0.13
+nc -U ./qmp-sock < file2
+nano make.sh 
+ping 10.0.0.13
+nano make.sh 
+./make.sh 
+ping 10.0.0.13
+nano make.sh 
+kill $(ps aux | grep 'qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img' | awk '{p
+ping 10.0.0.13
+./make.sh 
+nano make.sh 
+kill $(ps aux | grep 'qemu-system-x86_64 -hda IncludeOS_tests' | awk '{print $2}')
+nc -U ./qmp-sock  < file
+cat file
+nc -U ./qmp-sock  < file2
+ping 10.0.0.10
+ping 10.0.0.11
+ping 10.0.0.12
+ping 10.0.0.13
+cat file
+ping 10.0.0.15
+history 
+qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img -device virtio-net,netdev=net0,mac=c0:01:0a:00:00:0d -netdev tap,id=net0 -m 50 -nographic -qmp unix:./qmp-sock,server --monitor stdio
+screen -ls
+nc -U ./qmp-sock  < file
+screen -r test2
+nc -U ./qmp-sock  < file
+exit
+ping 10.0.0.13
+exit
+screen -dmS test1 qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img -device virtio-net,netdev=net0,mac=c0:01:0a:00:00:0d -netdev tap,id=net0 -m 50 -nographic -qmp unix:./qmp-sock,server --monitor stdio
+qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img -device virtio-net,netdev=net0,mac=c0:01:0a:00:00:0d -netdev tap,id=net0 -m 50 -nographic -qmp unix:./qmp-sock,server --monitor stdio
+ls
+nano file
+nc -U ./qmp-sock
+nc -U ./qmp-sock1
+
+nc -U ./qmp-sock < file
+nc -U ./qmp-sock < file
+nano make.sh 
+./make.sh 
+nano make.sh 
+./make.sh 
+nano make.sh 
+./make.sh 
+screen -ls
+nano make.sh 
+jobs -l
+screen -dmS screen_test 
+screen -list
+screen -r screen_test 
+screen -dmS screen_test nc -U ./qmp-sock 
+screen -r screen_test 
+screen -dmS screen_test nc -U ./qmp-sock 
+ping 10.0.0.13
+screen -r screen_test 
+screen -ls
+cat file
+nc -U ./qmp-sock < file
+screen -r screen_test 
+nc -U ./qmp-sock < file
+ping 10.0.0.13
+nc -U ./qmp-sock < file2
+screen -dmS test2 nc -U ./qmp-sock 
+screen -ls
+
+screen -r test2
+screen -r test1
+ping 10.0.0.13
+nc -U ./qmp-sock < file2
+nc -U ./qmp-sock < file
+screen -r test2
+screen -r test1
+ps aux | grep qemu
+nc -U ./qmp-sock < file
+man screen
+screen -r test2
+ping 10.0.0.13
+nc -U ./qmp-sock < file
+nc -U ./qmp-sock < file2
+cat  file
+nc -U ./qmp-sock < file2
+nc -U ./qmp-sock < file
+nc -U ./qmp-sock < file2
+nc -U ./qmp-sock 
+nc -U ./qmp-sock < file
+nc -U ./qmp-sock < file2
+screen -r test1
+ping 10.0.0.13
+kill $(ps aux | grep 'qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img' | awk '{print $2}')
+screen -dmS nc -U ./qmp-sock
+screen -ls
+screen -dmS test2  nc -U ./qmp-sock
+screen -ls
+screen -r test2 
+ls
+nano migrate.sh 
+./migrate.sh 
+nano query-migrate.sh 
+ls
+rm downtime 
+./query-migrate.sh 
+cat downtime 
+ls
+qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img -device virtio-net,netdev=net0,mac=$macaddress -netdev tap,id=net0 -m 100 -nographic -qmp unix:./qmp-sock,server --monitor stdio
+qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img -device virtio-net,netdev=net0,mac=$macaddress -netdev tap,id=net0 -m 100 -nographic -qmp unix:./qmp-sock,server --monitor stdio &
+jobs
+fg 1
+nano make.sh
+qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img -device virtio-net,netdev=net0,mac=c0:01:0a:00:00:0a -netdev tap,id=net0 -m 100 -nographic -qmp unix:./qmp-sock,server --monitor stdio &
+qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img -device virtio-net,netdev=net0,mac=c0:01:0a:00:00:0a -netdev tap,id=net0 -m 100 -nographic -qmp unix:./qmp-sock,server --monitor stdio
+kill $(ps aux | grep 'qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img' | awk '{print $2}')kill $(ps aux | grep 'qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img' | awk '{print $2}')
+kill $(ps aux | grep 'qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img' | awk '{print $2}')
+qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img -device virtio-net,netdev=net0,mac=c0:01:0a:00:00:0d -netdev tap,id=net0 -m 100 -nographic -qmp unix:./qmp-sock,server --monitor stdio
+./makeVM.sh 
+q
+nc -U ./qmp-sock
+nc -U ./qmp-sock33
+kill $(ps aux | grep 'qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img' | awk '{print $2}')
+nc -U ./qmp-sock
+nano make.sh
+./make.sh
+nano make.sh
+kill $(ps aux | grep 'qemu-system-x86_64 -hda IncludeOS_tests_v3.1.1-proto-11-gfe06609-dirty.img' | awk '{print $2}')
+nc -U ./qmp-sock
+kill $(ps aux | grep 'qemu-system-x86_64 -hda IncludeOS_tests_' | awk '{print $2}')
+nc -U ./qmp-sock
+ps aux | grep qemu
+nc -U ./qmp-sock
+cat file
+nc -U ./qmp-sock < file
+nc -U ./qmp-sock < file2
+nc -U ./qmp-sock
+nc -U ./qmp-sock < file
+fg
+jobs
+nc -U ./qmp-sock
+nano file
+nc -U ./qmp-sock < file
+nc -U ./qmp-sock < file2
+nano query-migrate.sh 
+ls
+history 
+memstat
+apt-get install memstat
+memstat
+man memstat
+cd 
+ls
+cd /
+cd /home/s199425/
+ls
+virsh list
+cd vm/
+ls
+virsh ?
+man virsh
+virsh nodeinfo includeos3
+virsh nodeinfo
+virsh list
+virsh dominfo includeos3
+virsh domemstat
+virsh dommemstat
+virsh dommemstat includeos3
+virsh dommemstat includeos2
+virsh dommemstat includeos1
+virsh dommemstat vm11
+cd vm
+vim includeos1.xml 
+cat includeos1.xml 
+history 
+time virsh migrate --live --persistent --verbose vm11 qemu+ssh://s199425@192.168.0.21/system
+ls
+qemu-system-x86_64 -enable-kvm -name ubuntumig -m 512 -hda ubuntu.12-04.x86.20141001.raw.img -vnc :19 -net nic,model=virtio -net tap,ifname=tap9,script=no,downscript=no
+cd ..
+ls
+cd vm
+ls
+qemu-system-x86_64 -enable-kvm -hda ubuntutest.img -smp 1 -cpu host -nographic -net nic,model=virtio -net tap,ifname=tap0,script=no,downscript=no
+scp  -r mroot@trident1.vlab.cs.hioa.no:/mem50percentNested.img mem50percentNested.img
+scp  -r mroot@trident1.vlab.cs.hioa.no:~/mem50percentNested.img mem50percentNested.img
+ls
+mv mem50percentNested.img vm
+cd vm
+ls
+cp includeos3.xml mem50includeos.xml
+jed mem50includeos.xml 
+vim mem50includeos.xml 
+ifdc
+ifconfig 
+virsh list
+virsh create mem50includeos.xml 
+virsh list
+man virsh
+ls
+ps aux | grep qemu
+virsh qemu-monitor-command vm11  --pretty '{ "execute": "migrate", "arguments": { "uri": "tcp:192.168.0.21:4444" } }'
+virsh qemu-monitor-command vm11 --pretty '{ "execute": "client_migrate_info"}'
+virsh qemu-monitor-command  --pretty '{ "execute": "client_migrate_info"}'
+arp -an
+ping 192.168.57.100
+ls
+cd vm
+ls
+qemu-system-x86_64 -hda mem50percentNested.img -device virtio-net,netdev=net0,mac=c0:01:0a:00:00:0d -netdev tap,id=net0 -m 100 -nographic
+ls
+scp  -r mroot@trident1.vlab.cs.hioa.no:~/mem50percentNested.img mem50percentNested.img
+ls
+scp  -r mroot@trident1.vlab.cs.hioa.no:~/inc.tar.gz inc.tar.gz
+tar -xfv inc.tar.gz 
+ls
+mv inc.tar.gz ~
+cd
+ls
+tar -xfv inc.tar.gz 
+tar -xvf inc.tar.gz 
+ls
+scp inc.tar.gz s199425@192.168.0.21:~
+ls
+kill $(ps aux | grep 'qemu-system-x86_64 -hda IncludeOS' | awk '{print $2}')
+vim migration1.sh 
+./mig.sh mem0percent.img 
+ls
+cat mem0percent.img_result 
+cat mem0percent.img_totaltime 
+vim mig.sh 
+mkdir data
+./mig.sh mem0percent.img
+cat mem0percent.img_downtime 
+cat mem0percent.img_totaltime 
+ls
+cp mem0percent.img_* mem0percent.img_*.bak
+ls
+vim mig.sh 
+ls
+scp  -r mroot@trident1.vlab.cs.hioa.no:~/mem50percent.img mem50percent.img
+ls
+cd vm
+ls
+cd ..
+cp mem50percent.img vm/mem50percent.img 
+cd vm
+ls
+vim includeos3.xml 
+vim mem50includeos.xml 
+virsh create mem50includeos.xml 
+virsh list
+virsh dominfo mem50percent
+virsh domstate mem50percent
+scp  -P 6912 -r mroot@trident1.vlab.cs.hioa.no:~/mem0percent.img test.img
+scp  -P -r root@trident1.vlab.cs.hioa.no:~/mem95.img test.img
+scp -r root@trident1.vlab.cs.hioa.no:~/mem95.img test.img
+scp -r mroot@trident1.vlab.cs.hioa.no:~/mem95.img test.img
+ls
+cp test.img vm/mem95.img
+cd vm
+ls
+cp includeos,xml mem95.xml
+cp includeos.xml mem95.xml
+vim mem95.xml 
+rm mem95.xml 
+cp mem50includeos.xml mem95.xml
+vim mem95.xml
+virsh create mem95.xml 
+virsh list
+scp -r mroot@trident1.vlab.cs.hioa.no:~/mem95percent400M.img mem95percent400M.img
+cp mem50includeos.xml mem95includeos.xml 
+vim mem95includeos.xml 
+virsh create mem95includeos.xml 
+vim mem95includeos.xml 
+virsh create mem95includeos.xml 
+virsh list
+scp -r mroot@trident1.vlab.cs.hioa.no:~/mem95percent400M.img mem95percent400M.img
+scp -r mroot@trident1.vlab.cs.hioa.no:~/mem95percent480M.img mem95percent480M.img
+scp -r mroot@trident1.vlab.cs.hioa.no:~/mem95percent80M.img mem95percent480M.img
+virsh list
+virsh destroy mem95p
+virsh destroy mem95percent
+cd vm
+ls
+cd 
+ls
+cd vm
+pwd
+cd /home/s199425/
+ls
+mv mem95* vm
+ls
+cd vm
+ls
+mv mem95percent480M.img mem95percent80M.img
+ls
+vim mem95.xml 
+rm mem95.xml 
+vim mem95includeos.xml 
+virsh mem95includeos.xml 
+virsh create mem95includeos.xml 
+virsh list
+apt-get update
+ls
+cd
+ls
+scp -r mroot@trident1.vlab.cs.hioa.no:~/kvmScripts  kvmScripts
+ls
+cd
+ls
+cd ..
+scp -r mroot@trident1.vlab.cs.hioa.no:~/preseed preseed
+scp -r mroot@trident1.vlab.cs.hioa.no:~/virt-manager virt-manager
+ls
+ifconfig 
+ls
+rm mem*
+ls
+mkdir IncludeOS-script
+mv calculate.sh mig.sh migration1.sh query-migrate1.sh IncludeOS-script/
+ls
+mv makeVM1.sh IncludeOS-script/
+cat killPS 
+mv killPS IncludeOS-script/
+cat run 
+ls
+cd /home/s199425/
+ls
+cd Git/
+ls
+cd master-thesis/
+ls
+cd ..
+cd vm
+ls
+cp ubuntu.12-04.x86.20141001.raw.img /root
+mkdir /root/qemu/
+mkdir /root/qemu/images
+cp ubuntu.12-04.x86.20141001.raw.img /root/qemu/images/
+cd
+cd kvmScripts/
+ls
+cd
+ls
+scp -r mroot@trident1.vlab.cs.hioa.no:~/kvmScripts  kvmScripts
+ls
+cd
+ls
+cd preseed/
+ls
+cd ..
+cd virt-manager/
+ls
+cd ..
+virsh list
+virsh shutdown mem95p
+virsh shutdown mem50percent
+virsh shutdown includeos2
+ps aux | grep qemu
+virsh list
+killall qemu-system-x86_64
+virsh list
+virsh list -a
+virsh list --all
+ifconfig 
+ls
+cd kvmScripts/
+ls
+cd ..
+rm -r kvmScripts/
+scp -r mroot@trident1.vlab.cs.hioa.no:~/kvmScripts  kvmScripts
+cd kvmScripts/
+ls
+vim makeSVM.sh 
+cd /root/qemu/images/
+ls
+scp -r mroot@trident1.vlab.cs.hioa.no:~/ubuntu14.04.amd64.4G22.img ubuntu14.04.amd64.4G22.img -v
+scp -r mroot@trident1.vlab.cs.hioa.no:~/ubuntu14.04.amd64.4G22.img ubuntu14.04.amd64.4G22.img -V
+man scp
+scp -v -r mroot@trident1.vlab.cs.hioa.no:~/ubuntu14.04.amd64.4G22.img ubuntu14.04.amd64.4G22.img 
+ls
+cd 
+ls
+cd kvmScripts/
+ls
+./makeSVM.sh 22
+cd ..
+cd /root/qemu/images/
+ls
+cp ubuntu14.04.amd64.4G22.img ubuntu14.04.amd64.4G22.img.bak
+ls -lh
+rm ubuntu14.04.amd64.4G22.img*
+scp -v -r mroot@trident1.vlab.cs.hioa.no:~/ubuntu14.04.amd64.4G22.img ubuntu14.04.amd64.4G22.img 
+ls
+cp ubuntu14.04.amd64.4G22.img ubuntu14.04.amd64.4G22.img.bak
+cd 
+cd kvmScripts/
+ls
+vim makeSVM.sh 
+./makeSVM.sh  33
+ls
+cat rc.local 
+cat build.sh 
+cat bochs_installation.sh 
+cat build_newlib.sh 
+ls
+cd ..
+ls
+cd virt-manager/
+ls
+cd virtManager/
+ls
+cd ..
+cd kvmScripts/
+./build_newlib.sh 
+apt-get install kvm
+kvm-ok 
+./makeSVM.sh 33
+cd
+cd -
+ls
+scp -v -r mroot@trident1.vlab.cs.hioa.no:~/startServerVM.sh startServerVM.sh
+vim startServerVM.sh 
+./startServerVM.sh 22 
+virsh list
+arp -an
+ps aux | grep qemu
+arp -an
+ping 192.168.122.22
+ls
+ping 192.168.122.22
+history 
+ls
+vim query-migrate.sh 
+ps aux | grep virt
+kill 19369
+top
+libvirt list
+history 
+virsh list
+virsh list --all
+nmap -v -sT localhost
+nmap -sP -PI -PT 192.168.0.0/24
+nmap -sP -PI -PT 192.168.57.0/24
+ifconfig 
+ping 192.168.122.147
+ping 192.168.122.144
+ssh 192.168.122.144
+virsh list --all
+ssh ubuntu@192.168.122.144
+virsh shutdown vm11
+virsh list 
+virsh list --all
+virsh dommemstat vm11
+history 10000
+history 
+nmap -sP -PI -PT 192.168.0.0/24
+ifconfig 
+history 
+virsh list
+virsh list -a
+virsh list -all
+virsh 
+ls
+virsh start vm11
+virsh start vm12
+virsh list -all
+virsh list --all
+virsh list 
+ifconfig 
+nmap -sP -PI -PT 192.168.122.0/24
+grep -v "^#" $HISTFILE >output-file
+cat output-file 
+cd vm/
+ls
+ls -lh
+virsh start vm11
+ps aux | grep qemu
+virsh list --all
+ifconfig 
+virsh dominfo vm11
+ls
+cd vm
+ls
+ls -la
