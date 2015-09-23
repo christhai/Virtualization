@@ -1,0 +1,61 @@
+<domain type='kvm' id='28'>
+  <name>mem50percent</name>
+  <uuid>a652c3df-0a13-b49a-8f9f-6f33656348df</uuid>
+  <memory unit='KiB'>102400</memory>
+  <currentMemory unit='KiB'>102400</currentMemory>
+  <vcpu placement='static'>1</vcpu>
+  <resource>
+    <partition>/machine</partition>
+  </resource>
+  <os>
+    <type arch='x86_64' machine='pc-i440fx-trusty'>hvm</type>
+    <boot dev='hd'/>
+  </os>
+  <features>
+    <acpi/>
+    <apic/>
+    <pae/>
+  </features>
+  <clock offset='utc'/>
+  <on_poweroff>destroy</on_poweroff>
+  <on_reboot>restart</on_reboot>
+  <on_crash>restart</on_crash>
+  <devices>
+    <emulator>/usr/bin/kvm-spice</emulator>
+    <disk type='file' device='disk'>
+      <driver name='qemu' type='raw'/>
+      <source file='/home/s199425/vm/mem50percent.img'/>
+      <target dev='hda' bus='ide'/>
+      <alias name='ide0-0-0'/>
+      <address type='drive' controller='0' bus='0' target='0' unit='0'/>
+    </disk>
+    <interface type='bridge'>
+      <mac address='c0:01:0a:00:00:0d'/>
+      <source bridge='include0'/>
+      <target dev='tap7'/>
+      <model type='virtio'/>
+      <alias name='net0'/>
+    </interface>
+    <serial type='pty'>
+      <source path='/dev/pts/11'/>
+      <target port='0'/>
+      <alias name='serial0'/>
+    </serial>
+    <console type='pty' tty='/dev/pts/11'>
+      <source path='/dev/pts/11'/>
+      <target type='serial' port='0'/>
+      <alias name='serial0'/>
+    </console>
+    <input type='mouse' bus='ps2'/>
+    <input type='keyboard' bus='ps2'/>
+  </devices>
+  <seclabel type='dynamic' model='apparmor' relabel='yes'>
+    <label>libvirt-a652c3df-0a13-b49a-8f9f-6f33656397df</label>
+    <imagelabel>libvirt-a652c3df-0a13-b49a-8f9f-6f33656397df</imagelabel>
+  </seclabel>
+  <channel type='unix'>
+    <source mode='bind' path='/var/lib/libvirt/qemu/f16x86_64.agent'/>
+    <target type='virtio' name='org.qemu.guest_agent.0'/>
+  </channel>
+</domain>
+
